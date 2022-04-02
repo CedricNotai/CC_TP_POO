@@ -123,4 +123,4 @@
     </form>
 </main>
 
-<a href="<?= URL_PREFIX . "/admin/keepers/" ?>">Retour à la liste des soigneurs</a>
+<a href="<?= URL_PREFIX . "/admin/animals/" ?>">Retour à la liste des animaux</a>

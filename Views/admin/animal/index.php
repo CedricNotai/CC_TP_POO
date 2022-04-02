@@ -35,28 +35,22 @@ use App\Models\Keeper;
         <div class="card">
             <h2><?= $animal->animal_name ?></h2>
             <img src="<?= $animal->animal_image_url ?>" alt="Photo de <?= $animal->animal_name ?>">
-            <p><?= $animal->getAllInfo() ?></p>
             <p>
-                <?php if (isset($favoriteKeeper)) {
-                    echo "Soigneur préféré : " . $favoriteKeeper->getIdentity() . ".";
-                } else {
-                    echo "Pas de soigneur préféré.";
-                } ?>
+                <?= $animal->getAllInfo() ?>
+                <?= isset($favoriteKeeper) ? "<br> Soigneur préféré : " . $favoriteKeeper->getIdentity() . ".<br> " : "<br> Pas de soigneur préféré.<br> "; ?>
+                <?= !$animal->animal_death_date ? "Actuellement dans l'enclos " . $currentEnclosure->getName() . "." : $animal->animal_name . " repose en paix dans notre cimetière des animaux."?>
             </p>
-            <?php if (!$animal->animal_death_date) {?>
-                <p>Actuellement dans l'enclos <?= $currentEnclosure->getName(); ?>.</p>
-            <?php } else { ?>
-                <p><?= $animal->animal_name ?> repose en paix dans notre cimetière des animaux.</p>
-            <?php } ?>
 
             <?php if (isset($treatments)) { ?>
-                <h3>Traitements reçus</h2>
-                <?php foreach($treatments as $treatment) { 
-                    $keeper = new Keeper($this->getDatabase());
-                    $treatmentKeeper = $keeper->findById($treatment->treatment_keeper_id);
-                ?>
-                    <p>Soin <?= $treatment->treatment_name ? $treatment->treatment_name : 'non défini' ?> prodigué par <?= $treatmentKeeper->getIdentity(); ?>.</p>
-                <?php } ?>
+                <h3>Traitements reçus</h3>
+                <ul>
+                    <?php foreach($treatments as $treatment) { 
+                        $keeper = new Keeper($this->getDatabase());
+                        $treatmentKeeper = $keeper->findById($treatment->treatment_keeper_id);
+                    ?>
+                        <li>Soin <?= $treatment->treatment_name ? $treatment->treatment_name : 'non défini' ?> prodigué par <?= $treatmentKeeper->getIdentity(); ?>.</li>
+                    <?php } ?>
+                </ul>
             <?php } ?>
             <a href="<?= URL_PREFIX . "/admin/animals/edit/" .  $animal->animal_id?>">Modifier cet animal</a>
             <form action="<?= URL_PREFIX . "/admin/animals/delete/" .  $animal->animal_id?>" method="POST">

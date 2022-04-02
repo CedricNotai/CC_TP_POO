@@ -15,7 +15,7 @@ abstract class Controller {
     }
 
     protected function view(string $path, array $params = null) {
-        // Démarrer le système de buffering
+        // start buffering system
         ob_start();
 
         // replace dots by directory separator

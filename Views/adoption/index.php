@@ -6,7 +6,6 @@
     $adoptions = $params['adoptions'];
 ?>
 
-
 <main>
     <h1>Les adoptions</h1>
 

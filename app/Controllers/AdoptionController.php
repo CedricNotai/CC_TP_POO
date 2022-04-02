@@ -5,7 +5,6 @@ use App\Models\Owner;
 use App\Models\Animal;
 use App\Models\Adoption;
 
-
 class AdoptionController extends Controller implements Display {
 
     public function index() {

@@ -8,6 +8,7 @@ use App\Exceptions\NotFoundException;
 
 require '../vendor/autoload.php';
 
+// virtual host configuration issue? 
 define('URL_PREFIX', "/d6-poo-php-tp");
 
 // define a const that leads to the views folder
@@ -86,5 +87,5 @@ try {
     $router->run();
 } catch (NotFoundException $e) {
     echo $e->getMessage();
-    // return $e->error404(); for custom 404
+    // return $e->error404(); // for custom 404
 }

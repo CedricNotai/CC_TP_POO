@@ -10,7 +10,6 @@ use App\Models\Keeper;
     $adoptions = $params['adoptions'];
 ?>
 
-
 <main>
     <h1><?= $animal->animal_name ?></h1>
 
@@ -37,17 +36,22 @@ use App\Models\Keeper;
                     <li>Soin <?= $treatment->treatment_name ? $treatment->treatment_name : 'non défini' ?> prodigué par <?= $treatmentKeeper->getIdentity(); ?>.</li>
             <?php } ?>
         </ul>
+    <?php } else { ?>
+        <p>Je n'ai pas encore bénéficié de traitement.</p>
     <?php } ?>
 
     <?php foreach($adoptions as $adoption) { 
         if ($adoption->adoption_animal_id == $animal->animal_id) { 
             $owner = (new Owner($this->getDatabase()))->findById($adoption->adoption_owner_id);
-            ?>
-        <p>Adopté par <?= $owner->getIdentity() ?></p>
-        <p>Le <?= (new DateTime($adoption->adoption_date))->format('d/m/Y'); ?></p>
-        <?= $adoption->adoption_info ? "Infos :" . $adoption->adoption_info . "<br>" : ""?>
-        <?= $adoption->adoption_price ? "Prix : " . $adoption->adoption_price . " euros <br>" : ""?>
-        <?= $adoption->adoption_return_date ? "Adoption échouée. Retour au refuge le : " . (new DateTime($adoption->adoption_return_date))->format('d/m/Y') . "<br>" : ""; ?>
+        ?>
+            <p>Adopté par <?= $owner->getIdentity() ?> le <?= (new DateTime($adoption->adoption_date))->format('d/m/Y'); ?>.</p>
+            <p>
+                <?= $adoption->adoption_return_date ? "Mais l'adoption a échoué. Retour au refuge le : " . (new DateTime($adoption->adoption_return_date))->format('d/m/Y') . "<br>" : ""; ?>
+            </p>
+            <p><?= $adoption->adoption_info ? "Infos :" . $adoption->adoption_info : ""?></p>
+            <p>
+                <?= $adoption->adoption_price ? "Prix de l'adoption : " . $adoption->adoption_price . " euros <br>" : "L'adoption s'est faite gratuitement."?>
+            </p>
 
         <?php } 
     } ?>

@@ -3,8 +3,8 @@
     if (isset($params['animal'])) {
         $animal = $params['animal'];
         $entryDate = (new DateTime($animal->animal_entry_date))->format('Y-m-d');
-        $birthDate = (new DateTime($animal->animal_birth_date))->format('d/m/Y');
-        $deathDate = (new DateTime($animal->animal_death_date))->format('d/m/Y');
+        $birthDate = (new DateTime($animal->animal_birth_date))->format('Y-m-d');
+        $deathDate = (new DateTime($animal->animal_death_date))->format('Y-m-d');
     }
 
     $keepersList = $params['keepersList'];

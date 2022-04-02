@@ -47,7 +47,7 @@ class AnimalController extends Controller {
         $result = $animal->create(filter_input_array(INPUT_POST, $this->args));
 
         if ($result) {
-            echo "Création ok";
+            echo "Création ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/animals" . "\">Retour</a>";
         }
     }
@@ -69,7 +69,7 @@ class AnimalController extends Controller {
         $result = $animal->update($id, filter_input_array(INPUT_POST, $this->args));
 
         if ($result) {
-            echo "Modification ok";
+            echo "Modification ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/animals" . "\">Retour</a>";
         }
     }
@@ -81,7 +81,7 @@ class AnimalController extends Controller {
         $result = $animal->destroy($id);
 
         if ($result) {
-            echo "Suppression ok";
+            echo "Suppression ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/animals" . "\">Retour</a>";
         }
     }

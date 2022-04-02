@@ -35,6 +35,11 @@ $router->get('/logout', 'App\Controllers\UserController@logOut');
 
 $router->get('/admin/panel', 'App\Controllers\UserController@admin');
 
+// RU Refuge
+$router->get('/admin/refuge', 'App\Controllers\Admin\RefugeController@index');
+$router->get('/admin/refuge/edit/:id', 'App\Controllers\Admin\RefugeController@edit');
+$router->post('/admin/refuge/edit/:id', 'App\Controllers\Admin\RefugeController@update');
+
 // CRUD Keeper
 $router->get('/admin/keepers', 'App\Controllers\Admin\KeeperController@index');
 $router->get('/admin/keepers/create', 'App\Controllers\Admin\KeeperController@create');

@@ -26,7 +26,7 @@ class OwnerController extends Controller {
         $result = $owner->create($_POST);
 
         if ($result) {
-            echo "Création ok";
+            echo "Création ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/owners" . "\">Retour</a>";
         }
     }
@@ -46,7 +46,7 @@ class OwnerController extends Controller {
         $result = $owner->update($id, $_POST);
 
         if ($result) {
-            echo "Modification ok";
+            echo "Modification ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/owners" . "\">Retour</a>";
         }
     }
@@ -58,7 +58,7 @@ class OwnerController extends Controller {
         $result = $owner->destroy($id);
 
         if ($result) {
-            echo "Suppression ok";
+            echo "Suppression ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/keepers" . "\">Retour</a>";
         }
     }

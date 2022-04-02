@@ -12,7 +12,7 @@ class EnclosureController extends Controller {
     public function index()
     {
         $this->isAdmin();
-        $enclosures = (new Enclosure($this->getDatabase()))->all();;
+        $enclosures = (new Enclosure($this->getDatabase()))->all();
 
         return $this->view('admin.enclosure.index', compact('enclosures'));
     }
@@ -31,7 +31,7 @@ class EnclosureController extends Controller {
         $result = $enclosure->create($_POST);
 
         if ($result) {
-            echo "Création ok";
+            echo "Création ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/enclosures" . "\">Retour</a>";
         }
     }
@@ -51,7 +51,7 @@ class EnclosureController extends Controller {
         $result = $enclosure->update($id, $_POST);
 
         if ($result) {
-            echo "Modification ok";
+            echo "Modification ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/enclosures" . "\">Retour</a>";
         }
     }
@@ -63,7 +63,7 @@ class EnclosureController extends Controller {
         $result = $enclosure->destroy($id);
 
         if ($result) {
-            echo "Suppression ok";
+            echo "Suppression ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/keepers" . "\">Retour</a>";
         }
     }

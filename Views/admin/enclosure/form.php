@@ -8,7 +8,7 @@
 <main>
     <h1><?= isset($params['enclosure']) ? "Modifier le enclos" : "Enregistrer un nouveau enclos" ?></h1>
 
-    <form action="<?= !isset($owner) ? "create" : URL_PREFIX . "/admin/enclosures/edit/{$enclosure->enclosure}" ?>" method="POST">
+    <form action="<?= !isset($enclosure) ? "create" : URL_PREFIX . "/admin/enclosures/edit/{$enclosure->enclosure_id}" ?>" method="POST">
         <div>
             <label for="enclosure_name">Nom de l'enclos : </label>
             <input type="text" name="enclosure_name" id="enclosure_name" value="<?= $enclosure->enclosure_name ?? '' ?>">

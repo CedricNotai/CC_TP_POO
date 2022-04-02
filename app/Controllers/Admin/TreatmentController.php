@@ -12,7 +12,7 @@ class TreatmentController extends Controller {
     public function index()
     {
         $this->isAdmin();
-        $treatments = (new Treatment($this->getDatabase()))->all();;
+        $treatments = (new Treatment($this->getDatabase()))->all();
 
         return $this->view('admin.treatment.index', compact('treatments'));
     }
@@ -33,7 +33,7 @@ class TreatmentController extends Controller {
         $result = $treatment->create($_POST);
 
         if ($result) {
-            echo "Création ok";
+            echo "Création ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/treatments" . "\">Retour</a>";
         }
     }
@@ -43,7 +43,7 @@ class TreatmentController extends Controller {
         $this->isAdmin();
         $treatment = (new Treatment($this->getDatabase()))->findById($id);
         $animalsList = (new Animal($this->getDatabase()))->all();
-        $keepersList = (new Keeper($this->getDatabase()))->all();;
+        $keepersList = (new Keeper($this->getDatabase()))->all();
 
         return $this->view('admin.treatment.form', compact('treatment', 'animalsList', 'keepersList'));
     }
@@ -55,7 +55,7 @@ class TreatmentController extends Controller {
         $result = $treatment->update($id, $_POST);
 
         if ($result) {
-            echo "Modification ok";
+            echo "Modification ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/treatments" . "\">Retour</a>";
         }
     }
@@ -67,7 +67,7 @@ class TreatmentController extends Controller {
         $result = $treatment->destroy($id);
 
         if ($result) {
-            echo "Suppression ok";
+            echo "Suppression ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/keepers" . "\">Retour</a>";
         }
     }

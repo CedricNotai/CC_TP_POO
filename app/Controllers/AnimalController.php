@@ -17,7 +17,7 @@ class AnimalController extends Controller implements Display {
     }
 
     public function show(int $id) {
-        $animal = (new Animal($this->getDatabase()))->findById($id);;
+        $animal = (new Animal($this->getDatabase()))->findById($id);
         
         $keeper = $animal->getFavoriteKeeper();
         if ($keeper) {

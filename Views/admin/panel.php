@@ -9,6 +9,7 @@
     </header>
 
     <ul>
+        <li><a href="<?= URL_PREFIX . "/admin/refuge"?>">Le refuge</a></li>
         <li><a href="<?= URL_PREFIX . "/admin/animals"?>">Animaux</a></li>
         <li><a href="<?= URL_PREFIX . "/admin/keepers"?>">Soigneurs</a></li>
         <li><a href="<?= URL_PREFIX . "/admin/owners"?>">Propriétaires</a></li>

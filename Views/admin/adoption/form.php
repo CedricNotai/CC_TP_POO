@@ -3,11 +3,10 @@
     if (isset($params['adoption'])) {
         $adoption = $params['adoption'];
         $adoptionDate = (new DateTime($adoption->adoption_date))->format('Y-m-d');
-        $returnDate = ($adoption->adoption_return_date) ?? (new DateTime($adoption->adoption_return_date))->format('Y-m-d');;
+        $returnDate = ($adoption->adoption_return_date) ?? (new DateTime($adoption->adoption_return_date))->format('Y-m-d');
     }
     $animalsList = $params['animalsList'];
     $ownersList = $params['ownersList'];
-
 ?>
 
 <main>

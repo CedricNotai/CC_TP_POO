@@ -20,7 +20,7 @@ class AdoptionController extends Controller {
     {
         $this->isAdmin();
         $animalsList = (new Animal($this->getDatabase()))->all();
-        $ownersList = (new Owner($this->getDatabase()))->all();;
+        $ownersList = (new Owner($this->getDatabase()))->all();
 
         return $this->view('admin.adoption.form', compact('animalsList', 'ownersList'));
     }
@@ -32,7 +32,7 @@ class AdoptionController extends Controller {
         $result = $adoption->create($_POST);
 
         if ($result) {
-            echo "Création ok";
+            echo "Création ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/adoptions" . "\">Retour</a>";
         }
     }
@@ -54,7 +54,7 @@ class AdoptionController extends Controller {
         $result = $adoption->update($id, $_POST);
 
         if ($result) {
-            echo "Modification ok";
+            echo "Modification ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/adoptions" . "\">Retour</a>";
         }
     }
@@ -66,7 +66,7 @@ class AdoptionController extends Controller {
         $result = $adoption->destroy($id);
 
         if ($result) {
-            echo "Suppression ok";
+            echo "Suppression ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/adoptions" . "\">Retour</a>";
         }
     }

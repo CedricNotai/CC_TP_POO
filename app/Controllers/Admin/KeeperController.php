@@ -20,7 +20,7 @@ class KeeperController extends Controller {
     {
         $this->isAdmin();
         $keepersList = (new Keeper($this->getDatabase()))->all();
-        $animalsList = (new Animal($this->getDatabase()))->all();;
+        $animalsList = (new Animal($this->getDatabase()))->all();
 
         return $this->view('admin.keeper.form', compact('keepersList', 'animalsList'));
     }
@@ -32,7 +32,7 @@ class KeeperController extends Controller {
         $result = $keeper->create($_POST);
 
         if ($result) {
-            echo "Création ok";
+            echo "Création ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/keepers" . "\">Retour</a>";
         }
     }
@@ -54,7 +54,7 @@ class KeeperController extends Controller {
         $result = $keeper->update($id, $_POST);
 
         if ($result) {
-            echo "Modification ok";
+            echo "Modification ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/keepers" . "\">Retour</a>";
         }
     }
@@ -66,7 +66,7 @@ class KeeperController extends Controller {
         $result = $keeper->destroy($id);
 
         if ($result) {
-            echo "Suppression ok";
+            echo "Suppression ok<br>";
             echo "<a href=\"" . URL_PREFIX ."/admin/keepers" . "\">Retour</a>";
         }
     }

@@ -10,7 +10,7 @@
 <main>
     <h1><?= isset($params['treatment']) ? "Modifier le traitement" : "Enregistrer un nouveau traitement" ?></h1>
     
-    <form action="<?= !isset($owner) ? "create" : URL_PREFIX . "/admin/treatments/edit/{$treatment->treatment}" ?>" method="POST">
+    <form action="<?= !isset($treatment) ? "create" : URL_PREFIX . "/admin/treatments/edit/{$treatment->treatment_id}" ?>" method="POST">
         <div>
             <label for="treatment_name">Nom du soin</label>
             <input type="text" name="treatment_name" id="treatment_name" value="<?= $treatment->treatment_name ?? '' ?>">

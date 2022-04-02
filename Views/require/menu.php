@@ -9,8 +9,9 @@
     <?php if (isset($_SESSION['auth'])) { ?>
         <li>
             <a href="<?= URL_PREFIX . "/logout/"?>">Se déconnecter</a>
+            <p>Menu backoffice</p>
             <ul>
-                <p>Panel d'administration</p>
+                <li><a href="<?= URL_PREFIX . "/admin/refuge"?>">Le refuge</a></li>
                 <li><a href="<?= URL_PREFIX . "/admin/animals"?>">Animaux</a></li>
                 <li><a href="<?= URL_PREFIX . "/admin/keepers"?>">Soigneurs</a></li>
                 <li><a href="<?= URL_PREFIX . "/admin/owners"?>">Propriétaires</a></li>
